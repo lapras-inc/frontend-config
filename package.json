@@ -1,15 +1,23 @@
 {
-  "name": "frontend-config",
-  "version": "1.0.0",
-  "description": "A monorepo for frontend configuration files.",
+  "name": "@lapras-inc/eslint-config",
+  "engines": {
+    "node": ">=14"
+  },
+  "version": "2.0.0",
+  "description": "ESLint configuration rules.",
   "main": "index.js",
   "repository": "git@github.com:lapras-inc/frontend-config.git",
-  "author": "Masa-Shin <contact@shin-translation.com>",
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/eslint-config-base",
-      "packages/eslint-config-vue"
-    ]
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": "Lapras Inc.",
+  "license": "MIT",
+  "peerDependencies": {
+    "eslint": ">= 6",
+    "eslint-plugin-vue": ">= 7",
+    "@typescript-eslint/eslint-plugin": ">= 3",
+    "@typescript-eslint/parser": ">= 3",
+    "@vue/eslint-config-prettier": ">= 6",
+    "@vue/eslint-config-typescript": ">= 5"
   }
 }

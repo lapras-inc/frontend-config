@@ -1,12 +1,9 @@
 # frontend-config
-フロントエンドの設定ファイルを集めたモノレポ
+ESLint sharable config for Lapras Inc.
 
-以下のパッケージを[Github packages](https://github.com/orgs/lapras-inc/packages)で公開しています。
+[Github packages](https://github.com/orgs/lapras-inc/packages)
 
-- [eslint-config-base](https://github.com/lapras-inc/frontend-config/tree/main/packages/eslint-config-base)
-- [eslint-config-vue](https://github.com/lapras-inc/frontend-config/tree/main/packages/eslint-config-vue)
-
-# 使い方
+# Usage
 1. package.json の devDependencies に使いたいパッケージを追記します（例：`"@lapras-inc/eslint-config-base": "1.0.1",`）
 2. `yarn insatall`
 3. .eslintrc の extends にパッケージを追記します（例：`'@lapras-inc/eslint-config-base'`）。
@@ -34,3 +31,6 @@ tokenの取得方法は[ここ](https://docs.github.com/ja/authentication/keepin
 1. コミットする。メッセージは`eslint-config-vue v1.0.1`のように[パッケージ名]＋[最新バージョンの番号]。
 1. pushしPRを作成する。
 1. PRがマージされたらmainブランチにpullして`npm publish`する
+
+# LICENSE
+MIT 
