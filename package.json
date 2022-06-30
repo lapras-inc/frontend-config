@@ -1,0 +1,15 @@
+{
+  "name": "frontend-config",
+  "version": "1.0.0",
+  "description": "A monorepo for frontend configuration files.",
+  "main": "index.js",
+  "repository": "git@github.com:lapras-inc/frontend-config.git",
+  "author": "Masa-Shin <contact@shin-translation.com>",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/eslint-config-base",
+      "packages/eslint-config-vue"
+    ]
+  }
+}
