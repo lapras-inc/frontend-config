@@ -4,11 +4,10 @@ ESLint sharable config for Lapras Inc.
 [Github packages](https://github.com/orgs/lapras-inc/packages)
 
 # Usage
-1. package.json の devDependencies に使いたいパッケージを追記します（例：`"@lapras-inc/eslint-config-base": "1.0.1",`）
-2. `yarn insatall`
-3. .eslintrc の extends にパッケージを追記します（例：`'@lapras-inc/eslint-config-base'`）。
-
-詳しくは[ここ](https://docs.github.com/ja/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)を参照
+1. package.json の devDependencies にこのパッケージのアーカイブのURLを追記します（例：`"@lapras-inc/eslint-config": "https://github.com/lapras-inc/frontend-config/archive/v2.0.0.tar.gz"`）
+2. `yarn insatall`します
+3. .eslintrc の extends にパッケージを追記します（例：`'@lapras-inc/eslint-config-base'`）
+4. 必要であれば拡張ルールもextendsに追加します（例：`'@lapras-inc/eslint-config/vue'`）
 
 # 開発手順
 
@@ -24,12 +23,10 @@ tokenの取得方法は[ここ](https://docs.github.com/ja/authentication/keepin
 
 ### 手順
 
-1. 修正したいパッケージのディレクトリへ移動（例: packages/eslint-config-base）
-1. featureブランチで修正後、コミットする
-コミットメッセージの形式はScoutなどと同様です。
+1. featureブランチで修正後、コミットする（コミットメッセージの形式はScout/Laprasと同様）
 1. [npm version](https://docs.npmjs.com/cli/v8/commands/npm-version)を使ってバージョンアップ（例：`npm version patch`）
-1. コミットする。メッセージは`eslint-config-vue v1.0.1`のように[パッケージ名]＋[最新バージョンの番号]。
-1. pushしPRを作成する。
+1. コミットする。メッセージは`v1.0.1`のように最新バージョンの番号のみでOK
+1. pushしPRを作成する
 1. PRがマージされたらmainブランチにpullして`npm publish`する
 
 # LICENSE
