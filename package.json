@@ -1,11 +1,16 @@
 {
   "name": "@lapras-inc/eslint-config",
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
-  "version": "3.0.0",
-  "description": "ESLint configuration rules.",
-  "main": "index.js",
+  "version": "4.0.0",
+  "description": "ESLint configuration rules (flat config, ESLint v10).",
+  "main": "eslint.config.js",
+  "exports": {
+    ".": "./eslint.config.js",
+    "./vue3": "./vue3.js",
+    "./import": "./import.js"
+  },
   "repository": "git@github.com:lapras-inc/frontend-config.git",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -13,13 +18,29 @@
   "author": "Lapras Inc.",
   "license": "MIT",
   "peerDependencies": {
-    "eslint": ">= 7",
-    "eslint-plugin-vue": ">= 9",
-    "@typescript-eslint/eslint-plugin": ">= 3",
-    "@typescript-eslint/parser": ">= 3",
-    "@vue/eslint-config-prettier": ">= 6",
-    "@vue/eslint-config-typescript": ">= 5",
-    "eslint-import-resolver-typescript": "^3.3.0",
-    "eslint-plugin-import": "^2.26.0"
+    "eslint": "^10.0.0",
+    "eslint-plugin-vue": "^10.0.0",
+    "vue-eslint-parser": "^10.0.0",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.0.0",
+    "@vue/eslint-config-typescript": "^14.7.0",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "prettier": "^3.0.0",
+    "eslint-plugin-prettier": "^5.2.0",
+    "eslint-config-prettier": "^10.1.0",
+    "eslint-plugin-import-x": "^4.16.2",
+    "eslint-import-resolver-typescript": "^3.6.0 || ^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "eslint-plugin-vue": { "optional": true },
+    "vue-eslint-parser": { "optional": true },
+    "@vue/eslint-config-typescript": { "optional": true },
+    "@vue/eslint-config-prettier": { "optional": true },
+    "eslint-plugin-import-x": { "optional": true },
+    "eslint-import-resolver-typescript": { "optional": true }
+  },
+  "dependencies": {
+    "@eslint/js": "^10.0.0",
+    "globals": "^15.0.0"
   }
 }
