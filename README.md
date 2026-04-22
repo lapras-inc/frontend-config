@@ -9,7 +9,7 @@ v4 以降は **flat config** 形式（`eslint.config.js`）で提供され、ESL
 （Github Package の利用に問題があったため、archive をそのまま取得する形で運用しています）
 
 1. package.json の devDependencies にこのパッケージのアーカイブ URL を追記（例: `"@lapras-inc/eslint-config": "https://github.com/lapras-inc/frontend-config/archive/v4.tar.gz"`）
-2. 利用側で `peerDependencies` を満たす各パッケージを install（`eslint@^10`、`typescript-eslint@^8`、`eslint-plugin-vue@^10`、`vue-eslint-parser@^10`、`@vue/eslint-config-typescript@^14.7`、`@vue/eslint-config-prettier@^10.2`、`eslint-plugin-prettier@^5.2`、`eslint-plugin-import-x@^4.16.2`、`eslint-import-resolver-typescript`）
+2. 利用側で `peerDependencies` を満たす各パッケージを install（`eslint@^10`、`typescript@^5`、`typescript-eslint@^8`、`eslint-plugin-vue@^10`、`vue-eslint-parser@^10`、`@vue/eslint-config-typescript@^14.7`、`@vue/eslint-config-prettier@^10.2`、`prettier@^3`、`eslint-plugin-prettier@^5.2`、`eslint-config-prettier@^10.1`、`eslint-plugin-import-x@^4.16.2`、`eslint-import-resolver-typescript`）
 3. `yarn install` / `npm install`
 4. プロジェクトルートに `eslint.config.js` を作成し、以下のように参照:
 
