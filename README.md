@@ -2,41 +2,36 @@
 
 ESLint sharable config for Lapras Inc.
 
-v4 以降は **flat config** 形式（`eslint.config.js`）で提供され、ESLint v10 以上が必要です。
+v4 以降は **flat config** 形式（`eslint.config.js`）で提供され、Node.js v20 以上、ESLint v10 以上が必要です。
 
 # Usage
 
 （Github Package の利用に問題があったため、archive をそのまま取得する形で運用しています）
 
 1. package.json の devDependencies にこのパッケージのアーカイブ URL を追記（例: `"@lapras-inc/eslint-config": "https://github.com/lapras-inc/frontend-config/archive/v4.tar.gz"`）
-2. 利用側で `peerDependencies` を満たす各パッケージを install（`eslint@^10`、`typescript@^5`、`typescript-eslint@^8`、`eslint-plugin-vue@^10`、`vue-eslint-parser@^10`、`@vue/eslint-config-typescript@^14.7`、`@vue/eslint-config-prettier@^10.2`、`prettier@^3`、`eslint-plugin-prettier@^5.2`、`eslint-config-prettier@^10.1`、`eslint-plugin-import-x@^4.16.2`、`eslint-import-resolver-typescript`）
+2. 使用する export に応じて peer パッケージを install する（**ベースだけ使う場合は base の peer のみ入れれば良い**。optional な peer は `peerDependenciesMeta.optional: true` を付けてあり、未導入でも npm/yarn は警告しない）
+
+   | 使う export | 追加で必要な peer |
+   |---|---|
+   | `@lapras-inc/eslint-config`（base、必須） | `eslint@^10`、`typescript@^5`、`typescript-eslint@^8`、`prettier@^3`、`eslint-plugin-prettier@^5.2`、`eslint-config-prettier@^10.1` |
+   | `@lapras-inc/eslint-config/vue3` | `eslint-plugin-vue@^10`、`vue-eslint-parser@^10`、`@vue/eslint-config-typescript@^14.7`、`@vue/eslint-config-prettier@^10.2` |
+   | `@lapras-inc/eslint-config/import` | `eslint-plugin-import-x@^4.16.2`、`eslint-import-resolver-typescript@^3.6 \|\| ^4` |
+
 3. `yarn install` / `npm install`
 4. プロジェクトルートに `eslint.config.js` を作成し、以下のように参照:
 
 ```javascript
-const tseslint = require('typescript-eslint');
 const base = require('@lapras-inc/eslint-config');
 const vue3 = require('@lapras-inc/eslint-config/vue3');
 const importConfig = require('@lapras-inc/eslint-config/import');
 
 module.exports = [
   ...base,
+  // vue3 プリセットは createConfig() 経由で .ts/.tsx の TS パーサと .vue の
+  // vue-eslint-parser + TS サブパーサまで flat config 上で自動設定するため、
+  // 利用側で languageOptions.parser を書き足す必要はない。
   ...vue3,
   ...importConfig,
-
-  // `.ts` / `.tsx`: TS パーサ
-  {
-    files: ['**/*.ts', '**/*.tsx'],
-    languageOptions: { parser: tseslint.parser },
-  },
-
-  // `.vue`: vue-eslint-parser に `<script lang="ts">` 用のサブパーサを差し込む
-  {
-    files: ['**/*.vue'],
-    languageOptions: {
-      parserOptions: { parser: tseslint.parser },
-    },
-  },
 
   // プロジェクト固有のルール等
 ];

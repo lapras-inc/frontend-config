@@ -31,6 +31,14 @@
     "eslint-plugin-import-x": "^4.16.2",
     "eslint-import-resolver-typescript": "^3.6.0 || ^4.0.0"
   },
+  "peerDependenciesMeta": {
+    "eslint-plugin-vue": { "optional": true },
+    "vue-eslint-parser": { "optional": true },
+    "@vue/eslint-config-typescript": { "optional": true },
+    "@vue/eslint-config-prettier": { "optional": true },
+    "eslint-plugin-import-x": { "optional": true },
+    "eslint-import-resolver-typescript": { "optional": true }
+  },
   "dependencies": {
     "@eslint/js": "^10.0.0",
     "globals": "^15.0.0"
